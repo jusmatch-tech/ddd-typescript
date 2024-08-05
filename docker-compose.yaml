@@ -1,0 +1,23 @@
+version: '3.7'
+
+services:
+  app:
+    build: .
+    container_name: wise360pro-api
+    command: .docker/start.sh
+    volumes:
+      - .:/home/node/app
+    ports:
+      - 3005:3005
+  
+  db:
+    platform: linux/x86_64
+    image: mysql:8.0.35-debian
+    container_name: wise360pro-db
+    environment:
+      MYSQL_DATABASE: wise360pro
+      MYSQL_ROOT_PASSWORD: root
+    tmpfs:
+      - /var/lib/mysql
+    security_opt:
+      - seccomp:unconfined

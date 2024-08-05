@@ -1,0 +1,18 @@
+@startuml context
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+title "Projeto APP Syspro"
+
+Person(user, "Usuário", "Usuário APP", $sprite="users")
+
+System_Ext(keycloak, "Keycloak Identity Manager", "Credentials Manager")
+System_Ext(erp, "APISYS", "Sistema ScadaFlex")
+
+System(userapp, "Aplicativo", "Syspro Aplicativo")
+
+Rel(user, userapp, "Uses","HTTPS")
+Rel(userapp, keycloak, "Uses","HTTPS")
+Rel(userapp, erp, "Uses","HTTPS")
+
+
+@enduml

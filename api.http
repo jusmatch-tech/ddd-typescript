@@ -1,0 +1,11 @@
+
+POST http://localhost:3000/tenants
+Content-Type: application/json
+
+{
+    "name": "tenant1",
+    "description": "tenant1 description"
+}
+
+###
+GET http://localhost:3000/tenants
